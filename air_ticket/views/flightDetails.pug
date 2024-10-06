@@ -1,0 +1,32 @@
+extends layout
+
+block content-head
+  title BloodDonation Details
+
+block content-body
+  section.flight-details
+    h1 BloodDonatio Information
+
+    .flight-card-container
+      if flights.length > 0 
+        each flight in flights
+          .flight-card
+            .flight-header
+              h2  Number: #{flight.flight.number}
+              p Name: #{flight.flight.airline.name}
+              p DonationDuration: #{flight.flight.departure.airport} To: #{flight.flight.arrival.airport}
+            .flight-body
+              p Departure: #{flight.flight.departure.scheduled}
+              p Arrival: #{flight.flight.arrival.scheduled}
+              p Price: $#{flight.price}
+            .flight-footer
+              a(href="/login") Book 
+      else 
+        .flight-card 
+          h2 No slot Found
+          p Sorry, no slot match your search for 
+          |
+          strong #{from} to #{to}.
+
+    // Back to search form button
+    a(href="/") Back to Search

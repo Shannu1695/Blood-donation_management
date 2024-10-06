@@ -1,0 +1,43 @@
+extends layout 
+
+block content-head 
+  title Welcome to Blood Donation
+  
+block content-body 
+  section.hero
+    h1 Donate Anywhere, Anytime!
+
+  section.search-section
+    .search-form
+      h2 Book Your slot to Doante
+      form(action="/search_flight" method="post")
+        
+        
+        select(name="Place" required)
+          option(value="" disabled selected) To
+          each airport in airports
+            option(value=airport.iata_code) #{airport.airport_name} (#{airport.iata_code})
+
+        select(name="Blood Type" required)
+          option(value="" disabled selected) Type of Blood
+          option(value="1") O +ve
+          option(value="2") O -ve
+          option(value="3") AB +ve
+          option(value="4") AB -ve
+
+        input(type="date" name="date" required)
+        button(type="submit") Search Slots
+
+  section.features
+    .feature
+      img(src="./assets/img/easy_booking.jpg" alt="Easy Booking")
+      h3 Easy Booking
+      p Book your Donation Slot in just a few clicks.
+    .feature
+      img(src="./assets/img/best_price.jpg" alt="Best Prices")
+      h3 Best Prices
+      p Get the best deals and offers for your Travel to Donate.
+    .feature
+      img(src="./assets/img/support.jpg" alt="24/7 Support")
+      h3 24/7 Support
+      p We are here to help you anytime, anywhere.

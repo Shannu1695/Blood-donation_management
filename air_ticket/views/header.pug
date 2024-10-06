@@ -1,0 +1,19 @@
+header
+  h1 Blood Donation
+  
+
+nav
+  ul
+    li: a(href="/") Home
+    li: a(href="/aboutus") About
+    li: a(href="/services") Services
+    li: a(href="/contact") Contact
+
+    if !userId
+      li: a(href="/register") Register
+      li: a(href="/login") Login
+ 
+    if userId 
+      li: a(href="/user/dashboard") Dashboard
+      li: a(href="/user/logout") LogOut 
+
